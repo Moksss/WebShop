@@ -6,6 +6,5 @@
         public string Kategorija { get; set; }
         public decimal Cena { get; set; }
         public string Opis { get; set; }
-
     }
 }

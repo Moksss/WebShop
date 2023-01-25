@@ -1,10 +1,10 @@
 
-using Core.Abstractions.Repository;
+using Core.Abstractions.Repositories;
 using Core.Abstractions.Services;
-using DataBase.Repository;
+using Database.Repositories;
 using Services;
 
-namespace WebApplication1
+namespace WebShop
 {
     public class Program
     {
@@ -14,18 +14,13 @@ namespace WebApplication1
 
             // Add services to the container.
 
-            builder.Services.AddSingleton<IProductRepository, ProductRepository>();
-            builder.Services.AddSingleton<IProductService, ProductServices>();
-
-
             builder.Services.AddControllers();
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
 
-            builder.Services.AddScoped<IForecastService, ForecastService1>();
-
-
+            builder.Services.AddTransient<IProductService, ProductService>();
+            builder.Services.AddTransient<IProductRepository, ProductRepository>();
 
             var app = builder.Build();
 
@@ -35,8 +30,6 @@ namespace WebApplication1
                 app.UseSwagger();
                 app.UseSwaggerUI();
             }
-
-            app.UseHttpsRedirection();
 
             app.UseAuthorization();
 

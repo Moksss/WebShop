@@ -4,6 +4,6 @@ namespace Core.Abstractions.Services
 {
     public interface IProductService
     {
-        void InsertProduct(Proizvod proizvod);
+        void InsertProduct(Proizvod product);
     }
 }
