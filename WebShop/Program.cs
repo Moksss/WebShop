@@ -19,8 +19,8 @@ namespace WebShop
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
 
-            builder.Services.AddTransient<IProductService, ProductService>();
-            builder.Services.AddTransient<IProductRepository, ProductRepository>();
+            builder.Services.AddTransient<IProductsService, ProductsService>();
+            builder.Services.AddSingleton<IProductRepository, ProductRepository>();
 
             var app = builder.Build();
 
